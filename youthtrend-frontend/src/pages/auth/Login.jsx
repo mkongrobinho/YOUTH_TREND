@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Mail, Lock, Eye, Globe, ArrowRight } from "lucide-react";
-
-
+import { useTranslation } from "react-i18next";
 function Login() {
+  const { t, i18n } = useTranslation();
+
+const [language, setLanguage] = useState("en");
+
+const changeLanguage = (lang) => {
+  setLanguage(lang);
+  i18n.changeLanguage(lang);
+};
 
   return (
 
@@ -134,33 +142,60 @@ function Login() {
       <div className="
         flex-1
         flex
+        flex-col
         items-center
         justify-center
-        relative
         p-5
       ">
 
 
-        {/* Language button */}
+       {/* Language Switch */}
 
-        <button className="
-          absolute
-          top-6
-          right-8
-          border
-          rounded-full
-          px-5
-          py-2
-          flex
-          items-center
-          gap-2
-          text-gray-600
-        ">
+<div className="w-full max-w-md flex justify-end mb-4">
 
-          <Globe size={18}/>
-          Switch Language
+  <div
+    className="
+      flex
+      items-center
+      gap-2
+      border
+      rounded-full
+      bg-white
+      px-4
+      py-2
+      shadow-sm
+    "
+  >
 
-        </button>
+    <Globe size={18} className="text-green-700" />
+
+    <button
+      onClick={() => changeLanguage("en")}
+      className={`px-2 font-medium ${
+        language === "en"
+          ? "text-green-700"
+          : "text-gray-500"
+      }`}
+    >
+      🇬🇧 EN
+    </button>
+
+    <span className="text-gray-300">|</span>
+
+    <button
+      onClick={() => changeLanguage("fr")}
+      className={`px-2 font-medium ${
+        language === "fr"
+          ? "text-green-700"
+          : "text-gray-500"
+      }`}
+    >
+      🇫🇷 FR
+    </button>
+
+  </div>
+
+</div>
 
 
 
@@ -184,7 +219,7 @@ function Login() {
             font-bold
             text-center
           ">
-            Welcome Back
+           {t("welcome")}
           </h1>
 
 
@@ -220,7 +255,7 @@ function Login() {
               font-semibold
               text-green-800
             ">
-              Log In
+             {t("login")}
             </button>
 
 
@@ -250,7 +285,7 @@ function Login() {
             mt-7
             font-medium
           ">
-            Email Address
+            {t("email")}
           </label>
 
 
@@ -295,7 +330,7 @@ function Login() {
           ">
 
             <label className="font-medium">
-              Password
+             {t("password")} 
             </label>
 
 

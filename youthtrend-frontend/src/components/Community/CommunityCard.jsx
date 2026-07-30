@@ -1,7 +1,13 @@
 import { Users } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 
 function CommunityCard({ community }) {
+
+
+  const navigate = useNavigate();
+
+
 
   return (
 
@@ -11,9 +17,8 @@ function CommunityCard({ community }) {
       border
       overflow-hidden
       shadow-sm
-      hover:shadow-md
-      transition
     ">
+
 
 
       {/* Cover Image */}
@@ -23,12 +28,16 @@ function CommunityCard({ community }) {
         alt={community.name}
         className="
           w-full
-          h-44
+          h-40
           object-cover
         "
       />
 
 
+
+
+
+      {/* Content */}
 
       <div className="p-5">
 
@@ -54,21 +63,23 @@ function CommunityCard({ community }) {
 
 
 
+
         {/* Members */}
 
         <div className="
           flex
           items-center
           gap-2
-          mt-4
           text-gray-500
+          mt-4
         ">
 
           <Users size={18}/>
 
           <span>
-            {community.members} members
+            {community.members} Members
           </span>
+
 
         </div>
 
@@ -76,22 +87,26 @@ function CommunityCard({ community }) {
 
 
 
-        {/* Student Avatars */}
+
+        {/* Student avatars */}
 
         <div className="
           flex
-          items-center
           mt-4
         ">
 
 
           {
-            community.students.map((student,index)=>(
+            community.students?.map((student,index)=>(
 
               <img
+
                 key={index}
+
                 src={student}
+
                 alt="student"
+
                 className="
                   w-9
                   h-9
@@ -100,8 +115,8 @@ function CommunityCard({ community }) {
                   border-2
                   border-white
                   -ml-2
-                  first:ml-0
                 "
+
               />
 
             ))
@@ -114,7 +129,16 @@ function CommunityCard({ community }) {
 
 
 
+
+
+        {/* Button */}
+
         <button
+
+          onClick={() =>
+            navigate(`/community/${community.id}`)
+          }
+
           className="
             mt-5
             w-full
@@ -124,10 +148,12 @@ function CommunityCard({ community }) {
             rounded-xl
             hover:bg-green-800
           "
-        >
-          Join Community
-        </button>
 
+        >
+
+          View Community
+
+        </button>
 
 
       </div>

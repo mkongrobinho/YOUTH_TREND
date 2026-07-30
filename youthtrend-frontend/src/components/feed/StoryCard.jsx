@@ -1,9 +1,9 @@
 function StoryCard() {
   return (
-    <div className="min-w-[120px] h-48 rounded-2xl overflow-hidden relative shadow-md cursor-pointer">
+    <div className="min-w-30 h-48 rounded-2xl overflow-hidden relative shadow-md cursor-pointer">
 
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-green-700 to-green-400"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-green-700 to-green-400"></div>
 
       {/* Avatar */}
       <div className="absolute top-3 left-3">
