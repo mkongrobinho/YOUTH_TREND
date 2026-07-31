@@ -62,5 +62,4 @@ function StatCard({ title, value, icon: Icon }) {
 
 }
 
-
 export default StatCard;

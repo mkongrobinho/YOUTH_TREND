@@ -1,44 +1,64 @@
-import { Bell, Search } from "lucide-react";
-
+import { Search, Bell, CircleHelp } from "lucide-react";
 
 function LeaderNavbar() {
-
   return (
+    <nav
+      className="
+        fixed
+        top-0
+        left-0
+        right-0
+        h-16
+        bg-white
+        border-b
+        flex
+        items-center
+        justify-between
+        px-6
+        z-50
+      "
+    >
 
-    <header className="
-      h-20
-      bg-white
-      border-b
-      flex
-      items-center
-      justify-between
-      px-6
-    ">
+      {/* Left */}
+      <div className="flex items-center gap-6">
+
+        <h1 className="text-xl font-bold text-[#005429]">
+          Leader Mode
+        </h1>
+
+      </div>
+
+
+
 
 
       {/* Search */}
 
-      <div className="
-        flex
-        items-center
-        gap-3
-        bg-gray-100
-        rounded-xl
-        px-4
-        py-2
-        w-96
-      ">
+      <div
+        className="
+          hidden
+          lg:flex
+          items-center
+          bg-gray-100
+          rounded-full
+          px-4
+          py-2
+          w-96
+        "
+      >
 
         <Search
-          size={20}
+          size={18}
           className="text-gray-400"
         />
 
         <input
-          placeholder="Search..."
+          type="text"
+          placeholder="Search members, roles, or schools..."
           className="
             bg-transparent
             outline-none
+            ml-3
             w-full
           "
         />
@@ -49,104 +69,88 @@ function LeaderNavbar() {
 
 
 
-      {/* Right side */}
 
-      <div className="
-        flex
-        items-center
-        gap-5
-      ">
+      {/* Right */}
 
+      <div className="flex items-center gap-5">
 
-        {/* Notification */}
-
-        <button
+        <Bell
+          size={22}
           className="
-            relative
+            cursor-pointer
             text-gray-600
-            hover:text-green-700
+            hover:text-[#005429]
           "
-        >
-
-          <Bell size={24}/>
-
-
-          <span className="
-            absolute
-            -top-1
-            -right-1
-            bg-red-600
-            text-white
-            text-xs
-            w-5
-            h-5
-            rounded-full
-            flex
-            items-center
-            justify-center
-          ">
-            3
-          </span>
-
-
-        </button>
+        />
 
 
 
+        <CircleHelp
+          size={22}
+          className="
+            cursor-pointer
+            text-gray-600
+            hover:text-[#005429]
+          "
+        />
 
 
-        {/* Leader Profile */}
 
-        <div className="
-          flex
-          items-center
-          gap-3
-        ">
+        <div className="h-8 w-px bg-gray-300"></div>
 
 
-          <img
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
-            alt="leader"
-            className="
-              w-11
-              h-11
-              rounded-full
-              object-cover
-            "
-          />
 
+        <div className="flex items-center gap-3">
 
-          <div>
+          <div className="text-right">
 
-            <h3 className="
-              font-semibold
-            ">
-              Admin Leader
+            <h3 className="text-sm font-semibold">
+              Amara Diallo
             </h3>
 
-
-            <p className="
-              text-sm
-              text-gray-500
-            ">
-              Campus Manager
+            <p className="text-xs text-gray-500">
+              Community Lead
             </p>
-
 
           </div>
 
 
-        </div>
 
+          <div className="relative">
+
+            <img
+              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+              alt="Leader"
+              className="
+                w-10
+                h-10
+                rounded-full
+                object-cover
+              "
+            />
+
+            <span
+              className="
+                absolute
+                bottom-0
+                right-0
+                w-3
+                h-3
+                rounded-full
+                bg-green-500
+                border-2
+                border-white
+              "
+            ></span>
+
+          </div>
+
+        </div>
 
       </div>
 
-
-    </header>
-
+    </nav>
   );
-
 }
-
 
 export default LeaderNavbar;

@@ -1,15 +1,15 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
-// Auth
+
+// Auth Pages
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import ForgotPassword from "./pages/auth/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword";
 
 
-// Layouts
+// Student Layout
 import MainLayout from "./layouts/MainLayout";
-import LeaderLayout from "./layouts/LeaderLayout";
 
 
 // Student Pages
@@ -26,9 +26,14 @@ import Settings from "./pages/student/Settings";
 import PostDetails from "./pages/student/PostDetails";
 
 
-// Leader
-import LeaderDashboard from "./pages/leader/Dashboard";
 
+// Leader Layout
+import LeaderLayout from "./layouts/LeaderLayout";
+
+
+// Leader Pages
+import Dashboard from "./pages/leader/Dashboard";
+import MemberManagement from "./pages/leader/MemberManagement";
 
 
 function App() {
@@ -48,6 +53,7 @@ function App() {
 
 
 
+
       {/* Authentication */}
 
       <Route
@@ -55,20 +61,24 @@ function App() {
         element={<Login />}
       />
 
+
       <Route
         path="/register"
         element={<Register />}
       />
+
 
       <Route
         path="/forgot-password"
         element={<ForgotPassword />}
       />
 
+
       <Route
         path="/reset-password"
         element={<ResetPassword />}
       />
+
 
 
 
@@ -84,20 +94,16 @@ function App() {
           element={<Home />}
         />
 
-
         <Route
           path="/discover"
           element={<Discover />}
         />
-
 
         <Route
           path="/communities"
           element={<Communities />}
         />
 
-
-        {/* Community Details */}
 
         <Route
           path="/community/:id"
@@ -136,12 +142,6 @@ function App() {
 
 
         <Route
-          path="/Notification"
-          element={<Notifications />}
-        />
-
-
-        <Route
           path="/settings"
           element={<Settings />}
         />
@@ -162,16 +162,17 @@ function App() {
 
 
 
-      {/* Leader Area */}
+      {/* Leader Mode */}
 
-      <Route
-        path="/leader"
-        element={<LeaderLayout />}
-      >
+      <Route element={<LeaderLayout />}>
 
         <Route
-          index
-          element={<LeaderDashboard />}
+          path="/leader/dashboard"
+          element={<Dashboard />}
+        />
+        <Route
+        path="/leader/members"
+        element={<MemberManagement/>}
         />
 
       </Route>
@@ -182,7 +183,7 @@ function App() {
 
 
 
-      {/* Unknown Route */}
+      {/* Not Found */}
 
       <Route
         path="*"

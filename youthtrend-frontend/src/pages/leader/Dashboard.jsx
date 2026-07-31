@@ -1,80 +1,36 @@
 import {
   Users,
-  FileText,
-  CalendarDays,
-  UsersRound
+  Megaphone,
+  ShieldAlert,
+  BadgeCheck,
+  TrendingUp,
+  AlertTriangle,
 } from "lucide-react";
 
-
 import StatCard from "../../components/leader/StatCard";
+import ModerationCard from "../../components/leader/ModerationCard";
 import ActivityCard from "../../components/leader/ActivityCard";
-
-
-
-const activities = [
-
-  {
-    type: "student",
-    title: "New student joined",
-    description: "John joined Computer Science community",
-    time: "5 minutes ago"
-  },
-
-  {
-    type: "post",
-    title: "New post created",
-    description: "A student shared a project update",
-    time: "20 minutes ago"
-  },
-
-  {
-    type: "event",
-    title: "New event created",
-    description: "Campus Tech Hackathon was created",
-    time: "1 hour ago"
-  },
-
-  {
-    type: "community",
-    title: "New community",
-    description: "AI Developers Club was created",
-    time: "2 hours ago"
-  }
-
-];
-
-
+import NoticeBoard from "../../components/leader/NoticeBoard";
 
 
 function Dashboard() {
 
-
   return (
 
-    <div className="
-      space-y-6
-    ">
+    <div className="space-y-6">
 
 
-
-      {/* Title */}
+      {/* Header */}
 
       <div>
 
-        <h1 className="
-          text-3xl
-          font-bold
-        ">
-          Dashboard
+        <h1 className="text-4xl font-bold">
+          Overview
         </h1>
 
-
-        <p className="
-          text-gray-500
-        ">
-          Manage your campus activities and students.
+        <p className="text-gray-500 mt-2">
+          Manage your campus community
         </p>
-
 
       </div>
 
@@ -82,12 +38,11 @@ function Dashboard() {
 
 
 
-
-
-      {/* Statistics */}
+      {/* Statistics Cards */}
 
       <div className="
         grid
+        grid-cols-1
         md:grid-cols-2
         xl:grid-cols-4
         gap-6
@@ -95,30 +50,35 @@ function Dashboard() {
 
 
         <StatCard
-          title="Total Students"
-          value="2,540"
+          icon={BadgeCheck}
+          title="Total Verified Students"
+          value="14,208"
+          change="+12% this month"
+          color="green"
+        />
+
+
+        <StatCard
           icon={Users}
+          title="Active Communities"
+          value="112"
+          color="blue"
         />
 
 
         <StatCard
-          title="Posts"
-          value="8,320"
-          icon={FileText}
+          icon={Megaphone}
+          title="Official Announcements"
+          value="28"
+          color="pink"
         />
 
 
         <StatCard
-          title="Events"
-          value="120"
-          icon={CalendarDays}
-        />
-
-
-        <StatCard
-          title="Communities"
-          value="85"
-          icon={UsersRound}
+          icon={ShieldAlert}
+          title="Pending Moderation"
+          value="17"
+          color="red"
         />
 
 
@@ -129,42 +89,161 @@ function Dashboard() {
 
 
 
+      {/* Middle Section */}
+
+      <div className="
+        grid
+        xl:grid-cols-3
+        gap-6
+      ">
 
 
-      {/* Recent Activity */}
 
-      <div>
+        {/* Moderation Queue */}
 
-        <h2 className="
-          text-xl
-          font-bold
-          mb-4
+        <div className="
+          xl:col-span-2
+          bg-white
+          rounded-2xl
+          border
+          p-6
         ">
-          Recent Activity
-        </h2>
+
+
+          <div className="
+            flex
+            justify-between
+            items-center
+          ">
+
+            <h2 className="text-2xl font-bold">
+              Moderation Queue Preview
+            </h2>
+
+
+            <button className="text-[#005429]">
+              View All Reports
+            </button>
+
+          </div>
+
+
+
+          <div className="mt-6 space-y-5">
+
+            <ModerationCard />
+
+            <ModerationCard />
+
+            <ModerationCard />
+
+          </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        {/* Activity Feed */}
+
+        <div className="
+          bg-white
+          rounded-2xl
+          border
+          p-6
+        ">
+
+
+          <h2 className="
+            text-2xl
+            font-bold
+            mb-6
+          ">
+            Activity Feed
+          </h2>
+
+
+
+
+          <div className="space-y-6">
+
+
+            <ActivityCard
+              icon={TrendingUp}
+              title="Announcement Published"
+              time="10 minutes ago"
+              color="green"
+            />
+
+
+
+            <ActivityCard
+              icon={AlertTriangle}
+              title="System Permission Update"
+              time="2 hours ago"
+              color="orange"
+            />
+
+
+
+            <ActivityCard
+              icon={ShieldAlert}
+              title="Community Archived"
+              time="5 hours ago"
+              color="red"
+            />
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+      {/* Bottom Section */}
+
+      <div className="
+        grid
+        xl:grid-cols-2
+        gap-6
+      ">
 
 
 
         <div className="
-          grid
-          md:grid-cols-2
-          gap-5
+          bg-white
+          rounded-2xl
+          border
+          p-8
         ">
 
+          <h2 className="text-3xl font-bold">
+            Campus Activity Surge
+          </h2>
 
-          {
-            activities.map((activity,index)=>(
 
-              <ActivityCard
-                key={index}
-                activity={activity}
-              />
-
-            ))
-          }
+          <p className="text-gray-500 mt-3">
+            Current real-time network interactions across campuses.
+          </p>
 
 
         </div>
+
+
+
+
+        <NoticeBoard />
 
 
       </div>

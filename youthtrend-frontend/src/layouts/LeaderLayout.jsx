@@ -1,62 +1,26 @@
 import { Outlet } from "react-router-dom";
 
-import LeaderSidebar from "../components/leader/LeaderSidebar";
 import LeaderNavbar from "../components/leader/LeaderNavbar";
-
+import LeaderSidebar from "../components/leader/LeaderSidebar";
 
 function LeaderLayout() {
-
   return (
+    <div className="min-h-screen bg-gray-100">
 
-    <div className="
-      flex
-      min-h-screen
-      bg-gray-100
-    ">
+      <LeaderNavbar />
 
+      <div className="flex pt-16">
 
-      {/* Sidebar */}
+        <LeaderSidebar />
 
-      <LeaderSidebar />
-
-
-
-
-      {/* Main Area */}
-
-      <div className="
-        flex-1
-      ">
-
-
-        {/* Navbar */}
-
-        <LeaderNavbar />
-
-
-
-
-        {/* Page Content */}
-
-        <main className="
-          p-6
-        ">
-
+        <main className="flex-1 p-6 min-w-0">
           <Outlet />
-
         </main>
-
-
 
       </div>
 
-
-
     </div>
-
   );
-
 }
-
 
 export default LeaderLayout;
