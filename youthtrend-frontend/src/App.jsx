@@ -34,8 +34,16 @@ import LeaderLayout from "./layouts/LeaderLayout";
 // Leader Pages
 import Dashboard from "./pages/leader/Dashboard";
 import MemberManagement from "./pages/leader/MemberManagement";
+import LeaderMessages from "./pages/leader/LeaderMessages";
+import Announcements from "./pages/leader/Announcements";
+import Moderation from "./pages/leader/Moderation";
+import LeaderEvents from "./pages/leader/Events";
+import EventDetails from "./pages/leader/EventDetails";
 
-
+// Admin pages
+import AdminDashboard from "./pages/admin/Dashboard";
+import UserManagement from "./pages/admin/UserManagement";
+import UniversityManagement from "./pages/admin/UniversityManagement";
 function App() {
 
   return (
@@ -174,6 +182,38 @@ function App() {
         path="/leader/members"
         element={<MemberManagement/>}
         />
+         <Route
+    path="/leader/messages"
+    element={<LeaderMessages />}
+  />
+  <Route
+  path="/leader/announcements"
+  element={<Announcements />}
+/>
+  <Route
+  path="/leader/moderation"
+  element={<Moderation />}
+/>
+<Route path="/leader/events" element={<LeaderEvents />} />
+<Route 
+  path="/leader/events/:id" 
+  element={<EventDetails />} 
+/>
+    {/* Admin Mode */}
+<Route
+path="/admin/dashboard"
+element={<AdminDashboard />}
+/>
+<Route
+path="/admin/users"
+element={<UserManagement />}
+/>
+<Route
+  path="/admin/universities"
+  element={<UniversityManagement />}
+/>
+
+
 
       </Route>
 

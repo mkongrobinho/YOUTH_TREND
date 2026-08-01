@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 import StatCard from "../../components/leader/StatCard";
-import ModerationCard from "../../components/leader/ModerationCard";
+
 import ActivityCard from "../../components/leader/ActivityCard";
 import NoticeBoard from "../../components/leader/NoticeBoard";
 
@@ -131,13 +131,159 @@ function Dashboard() {
 
           <div className="mt-6 space-y-5">
 
-            <ModerationCard />
+  <div className="border rounded-xl p-4">
 
-            <ModerationCard />
+    <div className="flex items-center gap-3">
 
-            <ModerationCard />
+      <div className="
+        w-10
+        h-10
+        rounded-full
+        bg-emerald-600
+        text-white
+        flex
+        items-center
+        justify-center
+        font-bold
+      ">
+        BN
+      </div>
 
-          </div>
+      <div>
+
+        <h3 className="font-semibold">
+          Bate Ngao
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          Harassment • Post
+        </p>
+
+      </div>
+
+      <span className="
+        ml-auto
+        bg-yellow-100
+        text-yellow-600
+        px-3
+        py-1
+        rounded-full
+        text-xs
+      ">
+        Pending
+      </span>
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div className="border rounded-xl p-4">
+
+    <div className="flex items-center gap-3">
+
+      <div className="
+        w-10
+        h-10
+        rounded-full
+        bg-gray-400
+        text-white
+        flex
+        items-center
+        justify-center
+        font-bold
+      ">
+        TK
+      </div>
+
+      <div>
+
+        <h3 className="font-semibold">
+          Tanyi Kevin
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          Spam • Profile
+        </p>
+
+      </div>
+
+
+      <span className="
+        ml-auto
+        bg-red-100
+        text-red-600
+        px-3
+        py-1
+        rounded-full
+        text-xs
+      ">
+        Escalated
+      </span>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div className="border rounded-xl p-4">
+
+    <div className="flex items-center gap-3">
+
+      <div className="
+        w-10
+        h-10
+        rounded-full
+        bg-emerald-600
+        text-white
+        flex
+        items-center
+        justify-center
+        font-bold
+      ">
+        EM
+      </div>
+
+
+      <div>
+
+        <h3 className="font-semibold">
+          Eposi Mary
+        </h3>
+
+        <p className="text-sm text-gray-500">
+          Inappropriate • Post
+        </p>
+
+      </div>
+
+
+      <span className="
+        ml-auto
+        bg-yellow-100
+        text-yellow-600
+        px-3
+        py-1
+        rounded-full
+        text-xs
+      ">
+        Pending
+      </span>
+
+
+    </div>
+
+  </div>
+
+
+</div>
 
 
         </div>
