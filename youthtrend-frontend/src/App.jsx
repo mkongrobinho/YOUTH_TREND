@@ -44,6 +44,7 @@ import EventDetails from "./pages/leader/EventDetails";
 import AdminDashboard from "./pages/admin/Dashboard";
 import UserManagement from "./pages/admin/UserManagement";
 import UniversityManagement from "./pages/admin/UniversityManagement";
+import UniversityDetails from "./pages/admin/UniversityDetails";
 function App() {
 
   return (
@@ -211,6 +212,10 @@ element={<UserManagement />}
 <Route
   path="/admin/universities"
   element={<UniversityManagement />}
+/>
+<Route
+  path="/admin/universities/:id"
+  element={<UniversityDetails />}
 />
 
 

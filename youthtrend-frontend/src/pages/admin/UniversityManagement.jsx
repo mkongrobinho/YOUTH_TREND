@@ -1,202 +1,152 @@
-import { Search, Plus, Eye, Pencil, Ban } from "lucide-react";
+import {
+  School,
+  Users,
+  UsersRound,
+  Crown,
+} from "lucide-react";
+
+import UniversityHeader from "../../components/admin/UniversityHeader";
+import UniversityFilters from "../../components/admin/UniversityFilters";
+import UniversityStatCard from "../../components/admin/UniversityStatCard";
+import UniversityTable from "../../components/admin/UniversityTable";
+
 
 const universities = [
+
   {
     id: 1,
+    logo: "https://placehold.co/80x80?text=UB",
     name: "University of Buea",
+    region: "South West",
     city: "Buea",
     students: 18420,
     communities: 42,
     leaders: 18,
     status: "Active",
   },
+
+
   {
     id: 2,
+    logo: "https://placehold.co/80x80?text=UY1",
     name: "University of Yaoundé I",
+    region: "Centre",
     city: "Yaoundé",
     students: 22150,
     communities: 56,
     leaders: 24,
     status: "Active",
   },
+
+
   {
     id: 3,
+    logo: "https://placehold.co/80x80?text=UD",
     name: "University of Douala",
+    region: "Littoral",
     city: "Douala",
     students: 19840,
     communities: 48,
     leaders: 20,
     status: "Inactive",
   },
+
+
+  {
+    id: 4,
+    logo: "https://placehold.co/80x80?text=UBa",
+    name: "University of Bamenda",
+    region: "North West",
+    city: "Bamenda",
+    students: 16320,
+    communities: 37,
+    leaders: 15,
+    status: "Active",
+  },
+
+
 ];
 
+
 function UniversityManagement() {
+
+
   return (
+
     <div className="space-y-8">
+
 
       {/* Header */}
 
-      <div className="flex justify-between items-center">
+      <UniversityHeader />
 
-        <div>
-          <h1 className="text-4xl font-bold">
-            University Management
-          </h1>
 
-          <p className="text-gray-500 mt-2">
-            Manage all registered universities on YouthTrend.
-          </p>
-        </div>
 
-        <button
-          className="
-          bg-[#005429]
-          text-white
-          px-5
-          py-3
-          rounded-xl
-          flex
-          items-center
-          gap-2
-          hover:bg-green-800
-          "
-        >
-          <Plus size={18} />
-          Add University
-        </button>
+      {/* Statistics Cards */}
 
-      </div>
+      <div className="
+      grid
+      grid-cols-1
+      md:grid-cols-2
+      xl:grid-cols-4
+      gap-6
+      ">
 
-      {/* Search */}
 
-      <div className="bg-white rounded-2xl border p-6">
+        <UniversityStatCard
+          icon={School}
+          title="Total Universities"
+          value="42"
+        />
 
-        <div className="
-        flex
-        items-center
-        border
-        rounded-xl
-        px-4
-        py-3
-        ">
 
-          <Search
-            size={20}
-            className="text-gray-400"
-          />
+        <UniversityStatCard
+          icon={Users}
+          title="Total Students"
+          value="142,830"
+        />
 
-          <input
-            placeholder="Search university..."
-            className="ml-3 w-full outline-none"
-          />
 
-        </div>
+        <UniversityStatCard
+          icon={UsersRound}
+          title="Total Communities"
+          value="610"
+        />
+
+
+        <UniversityStatCard
+          icon={Crown}
+          title="Campus Leaders"
+          value="275"
+        />
+
 
       </div>
 
-      {/* Table */}
 
-      <div className="bg-white rounded-2xl border overflow-hidden">
 
-        <table className="w-full">
 
-          <thead className="bg-gray-50">
+      {/* Filters */}
 
-            <tr>
+      <UniversityFilters />
 
-              <th className="text-left p-5">University</th>
 
-              <th className="text-left p-5">City</th>
 
-              <th className="text-left p-5">Students</th>
 
-              <th className="text-left p-5">Communities</th>
 
-              <th className="text-left p-5">Leaders</th>
+      {/* University Table */}
 
-              <th className="text-left p-5">Status</th>
+      <UniversityTable
+        universities={universities}
+      />
 
-              <th className="text-left p-5">Actions</th>
 
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            {universities.map((uni) => (
-
-              <tr
-                key={uni.id}
-                className="border-t hover:bg-gray-50"
-              >
-
-                <td className="p-5 font-semibold">
-                  {uni.name}
-                </td>
-
-                <td className="p-5">
-                  {uni.city}
-                </td>
-
-                <td className="p-5">
-                  {uni.students.toLocaleString()}
-                </td>
-
-                <td className="p-5">
-                  {uni.communities}
-                </td>
-
-                <td className="p-5">
-                  {uni.leaders}
-                </td>
-
-                <td className="p-5">
-
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      uni.status === "Active"
-                        ? "bg-green-100 text-green-700"
-                        : "bg-red-100 text-red-600"
-                    }`}
-                  >
-                    {uni.status}
-                  </span>
-
-                </td>
-
-                <td className="p-5">
-
-                  <div className="flex gap-3">
-
-                    <button className="text-green-700 hover:text-green-900">
-                      <Eye size={18} />
-                    </button>
-
-                    <button className="text-blue-600 hover:text-blue-800">
-                      <Pencil size={18} />
-                    </button>
-
-                    <button className="text-red-600 hover:text-red-800">
-                      <Ban size={18} />
-                    </button>
-
-                  </div>
-
-                </td>
-
-              </tr>
-
-            ))}
-
-          </tbody>
-
-        </table>
-
-      </div>
 
     </div>
+
   );
+
 }
+
 
 export default UniversityManagement;
