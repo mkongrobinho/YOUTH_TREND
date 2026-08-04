@@ -15,7 +15,8 @@ function Navbar() {
       flex
       items-center
       justify-between
-      px-6
+      px-4
+      md:px-6
       z-50
     ">
 
@@ -23,7 +24,8 @@ function Navbar() {
       {/* Logo */}
 
       <div className="
-        text-2xl
+        text-xl
+        md:text-2xl
         font-bold
         text-[#005429]
       ">
@@ -32,20 +34,22 @@ function Navbar() {
 
 
 
+
       {/* Search */}
 
       <div className="
         hidden
-        md:flex
+        lg:flex
         items-center
         bg-gray-100
         rounded-full
         px-4
         py-2
-        w-96
+        w-72
+        xl:w-96
       ">
 
-        <Search 
+        <Search
           size={20}
           className="text-gray-400"
         />
@@ -65,27 +69,34 @@ function Navbar() {
 
 
 
+
       {/* Actions */}
 
       <div className="
         flex
         items-center
-        gap-5
+        gap-3
+        md:gap-5
       ">
 
         <MessageCircle
+          size={22}
           className="text-gray-600 cursor-pointer"
         />
 
 
         <Bell
+          size={22}
           className="text-gray-600 cursor-pointer"
         />
 
 
+
         <div className="
-          w-10
-          h-10
+          w-9
+          h-9
+          md:w-10
+          md:h-10
           rounded-full
           bg-green-100
           flex
