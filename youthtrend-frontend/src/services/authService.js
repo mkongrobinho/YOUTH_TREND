@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import request from './api'
 
 export const registerUser = (data) =>
@@ -6,7 +6,7 @@ export const registerUser = (data) =>
 
 export const loginUser = (data) =>
   request('/auth/login', { method: 'POST', body: JSON.stringify(data) })
-=======
+
 export async function login(email, password) {
   const base = import.meta.env.VITE_API_BASE_URL;
 
@@ -38,4 +38,4 @@ export function logout() {
   localStorage.removeItem("userRole");
   localStorage.removeItem("authToken");
 }
->>>>>>> 91aadaf (Complete YouthTrend frontend updates: student features, events, leader and admin dashboards)
+ 
