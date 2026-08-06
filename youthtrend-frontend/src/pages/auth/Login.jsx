@@ -27,7 +27,7 @@ function Login() {
     setLoading(true);
     try {
       await login({ email, password });
-      navigate("/feed");
+      navigate("/");
     } catch (err) {
       setError(err.message || "Login failed. Please check your credentials.");
     } finally {

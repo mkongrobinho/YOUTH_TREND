@@ -21,3 +21,9 @@ app.use('/api/comments', commentRoutes)
 app.use(errorHandler)
 
 app.listen(port, () => console.log(`Backend running on port ${port}`))
+
+import userRoutes from './src/routes/userRoutes.js'
+// ...existing imports
+
+app.use('/api/users', userRoutes)
+// ...alongside your existing app.use('/api/auth', ...) etc.
