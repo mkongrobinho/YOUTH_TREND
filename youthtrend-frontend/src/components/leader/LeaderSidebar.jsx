@@ -96,7 +96,7 @@ function LeaderSidebar() {
         <div className="flex items-center gap-3 mt-6">
 
           <img
-            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+            src="https://images.pexels.com/photos/19379640/pexels-photo-19379640.jpeg?w=200&q=80"
             alt="Leader"
             className="w-12 h-12 rounded-full object-cover"
           />

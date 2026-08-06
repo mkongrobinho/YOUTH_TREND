@@ -1,193 +1,349 @@
 import {
   Heart,
   MessageCircle,
-  Share2,
-  MoreHorizontal
+  Send
 } from "lucide-react";
 
-
-function PostCard({ post }) {
-
-  return (
-
-    <div className="
-      bg-white
-      rounded-2xl
-      border
-      shadow-sm
-      overflow-hidden
-    ">
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
-      {/* Header */}
+function PostCard({post}) {
 
-      <div className="
-        flex
-        justify-between
-        items-center
-        p-5
-      ">
-
-        <div className="
-          flex
-          items-center
-          gap-3
-        ">
-
-          <div className="
-            w-12
-            h-12
-            rounded-full
-            bg-green-100
-            flex
-            items-center
-            justify-center
-            font-bold
-            text-[#005429]
-          ">
-            {post.name.charAt(0)}
-          </div>
+  const navigate = useNavigate();
 
 
-          <div>
+  const [liked,setLiked] = useState(false);
 
-            <h3 className="font-semibold">
-              {post.name}
-            </h3>
+  const [likes,setLikes] = useState(post.likes);
 
-            <p className="text-sm text-gray-500">
-              {post.school}
-            </p>
+  const [showComments,setShowComments] = useState(false);
 
-          </div>
+  const [comment,setComment] = useState("");
 
-        </div>
-
-
-        <MoreHorizontal 
-          size={22}
-          className="text-gray-500"
-        />
-
-      </div>
+  const [comments,setComments] = useState([]);
 
 
 
-      {/* Text */}
+  const handleLike = ()=>{
 
-      <div className="px-5 pb-4">
+    setLiked(!liked);
 
-        <p className="text-gray-700">
-          {post.text}
-        </p>
+    setLikes(
+      liked ? likes - 1 : likes + 1
+    );
 
-      </div>
-
-
-
-
-      {/* Post Image */}
-
-      {post.image && (
-
-        <div className="
-          h-72
-          bg-gray-100
-          overflow-hidden
-        ">
-
-          <img
-            src={post.image}
-            alt="post"
-            className="
-              w-full
-              h-full
-              object-cover
-            "
-          />
-
-        </div>
-
-      )}
+  };
 
 
 
+  const addComment = ()=>{
 
-      {/* Stats */}
+    if(!comment.trim()) return;
 
-      <div className="
-        flex
-        justify-between
-        px-5
-        py-3
-        text-sm
-        text-gray-500
-      ">
 
-        <span>
-          ❤️ {post.likes} Likes
-        </span>
+    setComments([
+      ...comments,
+      comment
+    ]);
 
-        <span>
-          {post.comments} Comments
-        </span>
 
-      </div>
+    setComment("");
+
+  };
+
+
+
+return (
+
+<div className="
+bg-white
+rounded-2xl
+border
+p-6
+shadow-sm
+">
+
+
+{/* User */}
+
+<div
+onClick={()=>navigate("/profile")}
+className="
+flex
+items-center
+gap-3
+cursor-pointer
+"
+>
+
+
+<img
+
+src={post.avatar}
+
+alt={post.name}
+
+className="
+w-12
+h-12
+rounded-full
+object-cover
+"
+
+/>
+
+
+<div>
+
+<h3 className="font-bold">
+{post.name}
+</h3>
+
+<p className="text-sm text-gray-500">
+{post.school}
+</p>
+
+</div>
+
+
+</div>
 
 
 
 
-      {/* Actions */}
-
-      <div className="
-        border-t
-        flex
-        justify-around
-        py-3
-      ">
 
 
-        <button className="
-          flex
-          items-center
-          gap-2
-          text-gray-600
-        ">
-          <Heart size={20}/>
-          Like
-        </button>
+{/* Content */}
+
+<div
+onClick={()=>navigate("/post/1")}
+className="
+mt-5
+cursor-pointer
+"
+>
+
+
+<p className="text-gray-700">
+{post.text}
+</p>
 
 
 
-        <button className="
-          flex
-          items-center
-          gap-2
-          text-gray-600
-        ">
-          <MessageCircle size={20}/>
-          Comment
-        </button>
+{
+post.image && (
+
+<img
+
+src={post.image}
+
+alt="Post"
+
+className="
+mt-4
+rounded-xl
+w-full
+h-64
+object-cover
+"
+
+/>
+
+)
+
+}
+
+
+</div>
 
 
 
-        <button className="
-          flex
-          items-center
-          gap-2
-          text-gray-600
-        ">
-          <Share2 size={20}/>
-          Share
-        </button>
 
 
-      </div>
+
+{/* Actions */}
 
 
-    </div>
+<div className="
+flex
+gap-8
+mt-6
+text-gray-500
+">
 
-  );
+
+<button
+
+onClick={handleLike}
+
+className={`
+flex
+items-center
+gap-2
+
+${liked ? "text-red-500" : ""}
+`}
+
+>
+
+
+<Heart
+
+size={20}
+
+fill={liked ? "red" : "none"}
+
+/>
+
+
+{likes}
+
+
+</button>
+
+
+
+
+
+<button
+
+onClick={()=>setShowComments(!showComments)}
+
+className="
+flex
+items-center
+gap-2
+"
+
+>
+
+<MessageCircle size={20}/>
+
+{post.comments + comments.length}
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+{/* Comments */}
+
+
+{
+showComments && (
+
+<div className="
+mt-5
+border-t
+pt-4
+">
+
+
+<div className="
+space-y-3
+">
+
+
+{
+comments.map((item,index)=>(
+
+<div
+key={index}
+className="
+bg-gray-100
+rounded-xl
+px-4
+py-2
+text-sm
+"
+>
+
+{item}
+
+</div>
+
+))
+
+}
+
+
+</div>
+
+
+
+
+
+
+<div className="
+flex
+gap-2
+mt-4
+">
+
+
+<input
+
+value={comment}
+
+onChange={(e)=>setComment(e.target.value)}
+
+placeholder="Write a comment..."
+
+className="
+flex-1
+bg-gray-100
+rounded-xl
+px-4
+py-2
+outline-none
+"
+
+/>
+
+
+
+<button
+
+onClick={addComment}
+
+className="
+bg-[#005429]
+text-white
+px-4
+rounded-xl
+"
+
+>
+
+<Send size={18}/>
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+)
+
+}
+
+
+
+</div>
+
+);
 
 }
 

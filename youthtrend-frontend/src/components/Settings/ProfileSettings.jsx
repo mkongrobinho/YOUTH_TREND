@@ -38,7 +38,7 @@ function ProfileSettings() {
 
 
           <img
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80"
+            src="https://images.pexels.com/photos/31528664/pexels-photo-31528664.jpeg?auto=compress&cs=tinysrgb&w=200&q=80"
             alt="student"
             className="
               w-24

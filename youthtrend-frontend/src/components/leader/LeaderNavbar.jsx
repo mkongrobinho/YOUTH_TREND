@@ -119,7 +119,7 @@ function LeaderNavbar() {
           <div className="relative">
 
             <img
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
+              src="https://images.pexels.com/photos/14756531/pexels-photo-14756531.jpeg?w=200&q=80"
               alt="Leader"
               className="
                 w-10

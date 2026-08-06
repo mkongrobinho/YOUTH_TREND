@@ -11,7 +11,7 @@ function MemberManagement() {
       role: "Student",
       status: "Active",
       image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+       "https://images.pexels.com/photos/31528664/pexels-photo-31528664.jpeg?w=200&q=80" 
     },
     {
       name: "Kevin Tchana",
@@ -19,7 +19,7 @@ function MemberManagement() {
       role: "Moderator",
       status: "Active",
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+        "https://images.pexels.com/photos/14756531/pexels-photo-14756531.jpeg?w=200&q=80"
     },
     {
       name: "Grace Nono",
@@ -27,7 +27,7 @@ function MemberManagement() {
       role: "Student",
       status: "Pending",
       image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
+       "https://images.pexels.com/photos/11189022/pexels-photo-11189022.jpeg?w=200&q=80" 
     }
   ];
 

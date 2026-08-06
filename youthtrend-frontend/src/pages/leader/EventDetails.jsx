@@ -16,7 +16,7 @@ function EventDetails() {
     title: "AI & Technology Innovation Meetup",
 
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+      "https://images.pexels.com/photos/19805876/pexels-photo-19805876.jpeg?w=800&q=80",
 
     description:
       "A campus event where students meet, share technology ideas, present projects and build new connections.",

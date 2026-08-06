@@ -8,19 +8,19 @@ function MutualCommunities() {
 
 
   const communities = [
-    {
-      name: "Software Developers Cameroon",
-      members: "2.4K members"
-    },
-    {
-      name: "Campus Entrepreneurs",
-      members: "1.8K members"
-    },
-    {
-      name: "UI/UX Designers",
-      members: "950 members"
-    }
-  ];
+  {
+    name: "Cameroon Software Developers",
+    members: "3.2K members"
+  },
+  {
+    name: "African Student Entrepreneurs",
+    members: "2.1K members"
+  },
+  {
+    name: "UI/UX Designers Africa",
+    members: "1.4K members"
+  }
+];
 
 
 

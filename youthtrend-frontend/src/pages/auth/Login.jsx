@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import { Mail, Lock, Eye, EyeOff, Globe, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../hooks/useAuth";
@@ -7,6 +8,16 @@ import { useAuth } from "../../hooks/useAuth";
 function Login() {
   const { t, i18n } = useTranslation();
   const { login } = useAuth();
+=======
+import { Mail, Lock, Eye, Globe, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { loginUser } from "../../utils/auth";
+import { login as loginApi } from "../../services/authService";
+
+
+function Login() {
+  const { t, i18n } = useTranslation();
+>>>>>>> 91aadaf (Complete YouthTrend frontend updates: student features, events, leader and admin dashboards)
   const navigate = useNavigate();
 
   const [language, setLanguage] = useState("en");
@@ -16,6 +27,7 @@ function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+<<<<<<< HEAD
   const changeLanguage = (lang) => {
     setLanguage(lang);
     i18n.changeLanguage(lang);
@@ -30,6 +42,33 @@ function Login() {
       navigate("/");
     } catch (err) {
       setError(err.message || "Login failed. Please check your credentials.");
+=======
+const changeLanguage = (lang) => {
+  setLanguage(lang);
+  i18n.changeLanguage(lang);
+};
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleLogin = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const data = await loginApi(email, password);
+      const role = data?.role || "student";
+
+      loginUser(role);
+      if (data?.token) localStorage.setItem("authToken", data.token);
+
+      if (role === "admin") navigate("/admin/dashboard");
+      else if (role === "leader") navigate("/leader/dashboard");
+      else navigate("/home");
+    } catch (err) {
+      setError(err.message || "Login failed");
+>>>>>>> 91aadaf (Complete YouthTrend frontend updates: student features, events, leader and admin dashboards)
     } finally {
       setLoading(false);
     }
@@ -65,6 +104,7 @@ function Login() {
       </div>
 
       {/* RIGHT SIDE */}
+<<<<<<< HEAD
       <div className="flex-1 flex flex-col items-center justify-center p-5">
         {/* Language Switch */}
         <div className="w-full max-w-md flex justify-end mb-4">
@@ -89,6 +129,71 @@ function Login() {
             </button>
           </div>
         </div>
+=======
+
+      <div className="
+        flex-1
+        flex
+        flex-col
+        items-center
+        justify-center
+        p-5
+      ">
+
+
+       {/* Language Switch */}
+
+<div className="w-full max-w-md flex justify-end mb-4">
+
+  <div
+    className="
+      flex
+      items-center
+      gap-2
+      border
+      rounded-full
+      bg-white
+      px-4
+      py-2
+      shadow-sm
+    "
+  >
+
+    <Globe size={18} className="text-green-700" />
+
+    <button
+      onClick={() => changeLanguage("en")}
+      className={`px-2 font-medium ${
+        language === "en"
+          ? "text-green-700"
+          : "text-gray-500"
+      }`}
+    >
+      🇬🇧 EN
+    </button>
+
+    <span className="text-gray-300">|</span>
+
+    <button
+      onClick={() => changeLanguage("fr")}
+      className={`px-2 font-medium ${
+        language === "fr"
+          ? "text-green-700"
+          : "text-gray-500"
+      }`}
+    >
+      🇫🇷 FR
+    </button>
+   
+
+  </div>
+
+</div>
+
+
+
+
+>>>>>>> 91aadaf (Complete YouthTrend frontend updates: student features, events, leader and admin dashboards)
 
         {/* Card */}
         <form onSubmit={handleSubmit} className="w-full max-w-md border rounded-2xl p-8 shadow-sm">
@@ -123,8 +228,18 @@ function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="student@university.cm"
+<<<<<<< HEAD
               className="w-full p-3 outline-none"
               required
+=======
+              className="
+                w-full
+                p-3
+                outline-none
+              "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+>>>>>>> 91aadaf (Complete YouthTrend frontend updates: student features, events, leader and admin dashboards)
             />
           </div>
 
@@ -142,8 +257,18 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
+<<<<<<< HEAD
               className="w-full p-3 outline-none"
               required
+=======
+              className="
+                w-full
+                p-3
+                outline-none
+              "
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+>>>>>>> 91aadaf (Complete YouthTrend frontend updates: student features, events, leader and admin dashboards)
             />
             <button type="button" onClick={() => setShowPassword((s) => !s)}>
               {showPassword ? (
@@ -159,6 +284,7 @@ function Login() {
             <span className="ml-2">Remember this device</span>
           </div>
 
+<<<<<<< HEAD
           <button
             type="submit"
             disabled={loading}
@@ -172,6 +298,57 @@ function Login() {
             <hr className="flex-1" />
             <span className="text-gray-400 text-sm">Or continue with</span>
             <hr className="flex-1" />
+=======
+
+
+
+
+          <button
+            onClick={handleLogin}
+            disabled={loading}
+            className="
+              w-full
+              bg-[#006b3c]
+              text-white
+              py-4
+              rounded-xl
+              mt-6
+              font-semibold
+              flex
+              justify-center
+              items-center
+              gap-2
+            "
+          >
+            {loading ? "Signing in..." : "Continue to Dashboard"}
+            <ArrowRight size={20} />
+          </button>
+
+          {error && (
+            <p className="text-red-600 text-sm mt-3">{error}</p>
+          )}
+
+
+
+
+
+
+          <div className="
+            flex
+            items-center
+            gap-3
+            my-7
+          ">
+
+            <hr className="flex-1"/>
+
+            <span className="text-gray-400 text-sm">
+              Or continue with
+            </span>
+
+            <hr className="flex-1"/>
+
+>>>>>>> 91aadaf (Complete YouthTrend frontend updates: student features, events, leader and admin dashboards)
           </div>
 
           <div className="flex gap-4">

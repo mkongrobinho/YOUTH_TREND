@@ -1,8 +1,15 @@
+import { useState } from "react";
+
 import ChatSidebar from "../../components/chat/ChatSidebar";
 import ChatWindow from "../../components/chat/ChatWindow";
 
 
 function Messages() {
+
+
+  const [selectedChat, setSelectedChat] = useState(null);
+
+
 
   return (
 
@@ -13,14 +20,14 @@ function Messages() {
     ">
 
 
-      {/* Conversations */}
-
       <div className="
         w-full
         md:w-96
       ">
 
-        <ChatSidebar />
+        <ChatSidebar
+          onSelectChat={setSelectedChat}
+        />
 
       </div>
 
@@ -28,15 +35,40 @@ function Messages() {
 
 
 
-      {/* Chat */}
-
       <div className="
         hidden
         md:flex
         flex-1
       ">
 
-        <ChatWindow />
+
+        {
+          selectedChat ? (
+
+            <ChatWindow
+              selectedChat={selectedChat}
+            />
+
+          ) : (
+
+            <div className="
+              flex
+              items-center
+              justify-center
+              bg-white
+              rounded-2xl
+              border
+              flex-1
+              text-gray-500
+            ">
+
+              Select a conversation
+
+            </div>
+
+          )
+        }
+
 
       </div>
 

@@ -1,6 +1,16 @@
-import { Search, Bell, MessageCircle } from "lucide-react";
+import {
+  Search,
+  Bell,
+  MessageCircle
+} from "lucide-react";
+
+import { useNavigate } from "react-router-dom";
+
 
 function Navbar() {
+
+  const navigate = useNavigate();
+
 
   return (
 
@@ -21,16 +31,25 @@ function Navbar() {
     ">
 
 
+
       {/* Logo */}
 
-      <div className="
+      <div
+        onClick={() => navigate("/home")}
+        className="
         text-xl
         md:text-2xl
         font-bold
         text-[#005429]
-      ">
+        cursor-pointer
+        "
+      >
+
         YouthTrend
+
       </div>
+
+
 
 
 
@@ -49,22 +68,30 @@ function Navbar() {
         xl:w-96
       ">
 
+
         <Search
           size={20}
           className="text-gray-400"
         />
 
+
         <input
+
           placeholder="Search students, communities..."
+
           className="
-            bg-transparent
-            outline-none
-            ml-3
-            w-full
+          bg-transparent
+          outline-none
+          ml-3
+          w-full
           "
+
         />
 
+
       </div>
+
+
 
 
 
@@ -72,44 +99,77 @@ function Navbar() {
 
       {/* Actions */}
 
+
       <div className="
-        flex
-        items-center
-        gap-3
-        md:gap-5
+      flex
+      items-center
+      gap-3
+      md:gap-5
       ">
 
+
+
         <MessageCircle
+
+          onClick={() => navigate("/messages")}
+
           size={22}
-          className="text-gray-600 cursor-pointer"
+
+          className="
+          text-gray-600
+          cursor-pointer
+          "
+
         />
+
+
 
 
         <Bell
+
+          onClick={() => navigate("/notifications")}
+
           size={22}
-          className="text-gray-600 cursor-pointer"
+
+          className="
+          text-gray-600
+          cursor-pointer
+          "
+
         />
 
 
 
-        <div className="
-          w-9
-          h-9
-          md:w-10
-          md:h-10
-          rounded-full
-          bg-green-100
-          flex
-          items-center
-          justify-center
-          font-bold
-          text-[#005429]
-        ">
-          YT
-        </div>
+
+
+
+        <img
+
+  onClick={() => navigate("/profile")}
+
+  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80"
+
+  alt="African Student"
+
+  className="
+    w-9
+    h-9
+    md:w-10
+    md:h-10
+    rounded-full
+    object-cover
+    cursor-pointer
+    border-2
+    border-green-600
+  "
+
+/>
+
+
 
 
       </div>
+
 
 
     </nav>

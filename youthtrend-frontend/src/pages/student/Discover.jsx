@@ -10,23 +10,31 @@ import {
 function Discover() {
 
 
-  const students = [
-    {
-      name: "Chris Ivan",
-      role: "Software Engineering",
-      university: "University of Yaoundé I"
-    },
-    {
-      name: "Sarah Johnson",
-      role: "Computer Science",
-      university: "ICT University"
-    },
-    {
-      name: "Michael Brown",
-      role: "Cyber Security",
-      university: "University of Buea"
-    }
-  ];
+ const students = [
+  {
+    name: "Chris Ivan",
+    role: "Software Engineering",
+    university: "University of Yaoundé I",
+    avatar:
+       "https://images.pexels.com/photos/34191464/pexels-photo-34191464.jpeg?auto=compress&cs=tinysrgb&w=300" 
+  },
+
+  {
+    name: "Brenda Johnson",
+    role: "Computer Science",
+    university: "ICT University",
+    avatar:
+      "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=300"
+  },
+
+  {
+    name: "Michael Brown",
+    role: "Cyber Security",
+    university: "University of Buea",
+    avatar:
+      "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=300"
+  }
+];
 
 
 
@@ -221,20 +229,18 @@ function Discover() {
             >
 
 
-              <div className="
-                w-16
-                h-16
-                rounded-full
-                bg-green-100
-                flex
-                items-center
-                justify-center
-                text-green-800
-                font-bold
-                text-xl
-              ">
-                {student.name[0]}
-              </div>
+            <img
+  src={student.avatar}
+  alt={student.name}
+  className="
+    w-16
+    h-16
+    rounded-full
+    object-cover
+    border-2
+    border-green-600
+  "
+/>
 
 
 

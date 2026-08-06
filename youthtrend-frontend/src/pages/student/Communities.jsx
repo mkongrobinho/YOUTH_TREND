@@ -17,11 +17,11 @@ const communities = [
     cover:
       "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
 
-    students: [
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80"
-    ]
+  students: [
+  "https://images.pexels.com/photos/30714671/pexels-photo-30714671.jpeg?auto=compress&cs=tinysrgb&w=200",
+  "https://images.pexels.com/photos/32275115/pexels-photo-32275115.jpeg?auto=compress&cs=tinysrgb&w=200",
+  "https://images.pexels.com/photos/18658795/pexels-photo-18658795.jpeg?auto=compress&cs=tinysrgb&w=200"
+]
   },
 
 
@@ -38,10 +38,10 @@ const communities = [
     cover:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
 
-    students: [
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&q=80",
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80"
-    ]
+   students: [
+  "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=200",
+  "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=200"
+]
   },
 
 
@@ -58,10 +58,10 @@ const communities = [
     cover:
       "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80",
 
-    students: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80"
-    ]
+  students: [
+  "https://images.pexels.com/photos/5984158/pexels-photo-5984158.jpeg?auto=compress&cs=tinysrgb&w=200",
+  "https://images.pexels.com/photos/28935716/pexels-photo-28935716.jpeg?auto=compress&cs=tinysrgb&w=200"
+]
   },
 
 
@@ -78,10 +78,10 @@ const communities = [
     cover:
       "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80",
 
-    students: [
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80"
-    ]
+  students: [
+  "https://images.pexels.com/photos/19518397/pexels-photo-19518397.jpeg?auto=compress&cs=tinysrgb&w=200",
+  "https://images.pexels.com/photos/11440539/pexels-photo-11440539.jpeg?auto=compress&cs=tinysrgb&w=200"
+]
   }
 
 ];

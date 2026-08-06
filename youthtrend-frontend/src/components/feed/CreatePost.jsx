@@ -1,136 +1,151 @@
-import {
-  Image,
-  Video,
-  Smile,
-  Send
-} from "lucide-react";
+import { Image, Send } from "lucide-react";
+import { useState } from "react";
 
 
-function CreatePost() {
+function CreatePost(){
 
-  return (
-
-    <div className="
-      bg-white
-      rounded-2xl
-      border
-      shadow-sm
-      p-5
-    ">
-
-
-      {/* User input */}
-
-      <div className="
-        flex
-        items-center
-        gap-4
-      ">
-
-        <div className="
-          w-12
-          h-12
-          rounded-full
-          bg-green-100
-          flex
-          items-center
-          justify-center
-          text-[#005429]
-          font-bold
-        ">
-          YT
-        </div>
-
-
-        <input
-          type="text"
-          placeholder="Share something with your campus..."
-          className="
-            flex-1
-            bg-gray-100
-            rounded-full
-            px-5
-            py-3
-            outline-none
-          "
-        />
-
-      </div>
+  const [text,setText] = useState("");
 
 
 
+  const handlePost = () => {
 
-      {/* Actions */}
-
-      <div className="
-        flex
-        justify-between
-        border-t
-        mt-5
-        pt-4
-      ">
+    if(!text.trim()) return;
 
 
-        <button className="
-          flex
-          items-center
-          gap-2
-          text-gray-600
-          hover:text-green-600
-        ">
-          <Image size={20}/>
-          Photo
-        </button>
+    console.log({
+      text:text,
+      date:new Date()
+    });
+
+
+    setText("");
+
+  };
 
 
 
-        <button className="
-          flex
-          items-center
-          gap-2
-          text-gray-600
-          hover:text-blue-600
-        ">
-          <Video size={20}/>
-          Video
-        </button>
+return (
+
+<div className="
+bg-white
+border
+rounded-2xl
+p-5
+">
+
+
+<div className="
+flex
+gap-3
+items-center
+">
+
+
+<img
+
+src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=200"
+
+alt="Student"
+
+className="
+w-12
+h-12
+rounded-full
+object-cover
+"
+
+/>
 
 
 
-        <button className="
-          flex
-          items-center
-          gap-2
-          text-gray-600
-          hover:text-yellow-500
-        ">
-          <Smile size={20}/>
-          Feeling
-        </button>
+<textarea
+
+value={text}
+
+onChange={(e)=>setText(e.target.value)}
+
+placeholder="Share something with your campus..."
+
+className="
+flex-1
+bg-gray-100
+rounded-xl
+px-5
+py-3
+outline-none
+resize-none
+h-20
+"
+
+/>
+
+
+</div>
 
 
 
-        <button className="
-          bg-[#005429]
-          text-white
-          px-5
-          py-2
-          rounded-xl
-          flex
-          items-center
-          gap-2
-        ">
-          <Send size={18}/>
-          Post
-        </button>
 
 
-      </div>
+<div className="
+flex
+justify-between
+mt-4
+">
 
 
-    </div>
+<button className="
+flex
+items-center
+gap-2
+text-gray-600
+hover:text-[#005429]
+">
 
-  );
+<Image size={20}/>
+
+Photo
+
+</button>
+
+
+
+
+
+<button
+
+onClick={handlePost}
+
+className="
+bg-[#005429]
+text-white
+px-5
+py-2
+rounded-xl
+flex
+items-center
+gap-2
+hover:bg-green-800
+"
+
+>
+
+
+<Send size={18}/>
+
+Post
+
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+)
 
 }
 

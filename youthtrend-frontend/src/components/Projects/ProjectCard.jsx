@@ -1,75 +1,107 @@
-import { Users, Code2 } from "lucide-react";
+import { Users, Code } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 
 function ProjectCard({ project }) {
 
+  const navigate = useNavigate();
+
+
+  // Prevent crash if project data is missing
+  if (!project) {
+    return null;
+  }
+
+
   return (
 
-    <div className="
-      bg-white
-      rounded-2xl
-      border
-      overflow-hidden
-      shadow-sm
-      hover:shadow-md
-      transition
-    ">
+    <div
+
+      onClick={() => navigate(`/projects/${project.id}`)}
+
+      className="
+        bg-white
+        rounded-2xl
+        border
+        overflow-hidden
+        shadow-sm
+        hover:shadow-md
+        transition
+        cursor-pointer
+      "
+
+    >
 
 
       {/* Project Image */}
 
       <img
+
         src={project.image}
+
         alt={project.title}
+
         className="
           w-full
           h-44
           object-cover
         "
+
       />
+
+
 
 
 
       <div className="p-5">
 
 
+        {/* Title */}
+
         <h2 className="
           text-xl
           font-bold
+          text-[#005429]
         ">
+
           {project.title}
+
         </h2>
 
 
 
+
+
+        {/* Description */}
+
         <p className="
-          text-gray-500
-          text-sm
+          text-gray-600
           mt-2
-          line-clamp-3
+          text-sm
         ">
+
           {project.description}
+
         </p>
 
 
 
 
 
-        {/* Technologies */}
+        {/* Technology */}
 
         <div className="
           flex
           items-center
           gap-2
           mt-4
-          text-green-700
+          text-gray-600
+          text-sm
         ">
 
-          <Code2 size={18}/>
+          <Code size={18}/>
 
-          <span className="
-            text-sm
-          ">
+          <span>
             {project.tech}
           </span>
 
@@ -79,14 +111,15 @@ function ProjectCard({ project }) {
 
 
 
-        {/* Team */}
+        {/* Members */}
 
         <div className="
           flex
           items-center
           gap-2
-          mt-4
-          text-gray-500
+          mt-3
+          text-gray-600
+          text-sm
         ">
 
           <Users size={18}/>
@@ -101,35 +134,37 @@ function ProjectCard({ project }) {
 
 
 
-        {/* Student Avatars */}
+        {/* Team Avatars */}
 
         <div className="
           flex
-          mt-4
+          mt-5
         ">
 
 
           {
-            project.students.map((student,index)=>(
+            project.students?.map((student,index)=>(
 
               <img
+
                 key={index}
+
                 src={student}
-                alt="student"
+
+                alt="team member"
+
                 className="
                   w-9
                   h-9
                   rounded-full
-                  object-cover
                   border-2
                   border-white
                   -ml-2
-                  first:ml-0
                 "
+
               />
 
             ))
-
           }
 
 
@@ -139,19 +174,33 @@ function ProjectCard({ project }) {
 
 
 
+        {/* View Button */}
+
         <button
+
+          onClick={(e)=>{
+
+            e.stopPropagation();
+
+            navigate(`/projects/${project.id}`);
+
+          }}
+
           className="
             mt-5
-            w-full
-            bg-green-700
+            bg-[#005429]
             text-white
-            py-3
+            px-5
+            py-2
             rounded-xl
-            hover:bg-green-800
           "
+
         >
+
           View Project
+
         </button>
+
 
 
       </div>

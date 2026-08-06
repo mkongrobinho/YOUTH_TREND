@@ -130,7 +130,7 @@ function EventCard() {
 
             <MapPin size={17}/>
 
-            University Campus
+            University of Buea Innovation Hub
 
           </div>
 

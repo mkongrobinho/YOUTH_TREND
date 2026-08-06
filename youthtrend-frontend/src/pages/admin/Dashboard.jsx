@@ -12,7 +12,7 @@ import SchoolRanking from "../../components/admin/SchoolRanking";
 import SystemEvents from "../../components/admin/SystemEvents";
 
 
-function Dashboard() {
+function AdminDashboard() {
 
   return (
 
@@ -36,7 +36,6 @@ function Dashboard() {
         </div>
 
 
-
         <button
           className="
           flex items-center gap-2
@@ -54,7 +53,6 @@ function Dashboard() {
 
         </button>
 
-
       </div>
 
 
@@ -63,13 +61,12 @@ function Dashboard() {
 
       {/* Statistics Cards */}
 
-
       <div className="
-      grid 
-      grid-cols-1 
-      md:grid-cols-2 
-      xl:grid-cols-4 
-      gap-6
+        grid
+        grid-cols-1
+        md:grid-cols-2
+        xl:grid-cols-4
+        gap-6
       ">
 
 
@@ -119,48 +116,37 @@ function Dashboard() {
 
 
 
-
       {/* Main Content */}
 
+      <div className="
+        grid
+        xl:grid-cols-3
+        gap-6
+      ">
 
-      <div className="grid xl:grid-cols-3 gap-6">
 
-
-
-        {/* Left Section */}
-
-
-        <div className="xl:col-span-2 space-y-6">
-
+        <div className="
+          xl:col-span-2
+          space-y-6
+        ">
 
           <GrowthChart />
 
-
           <SchoolRanking />
-
 
         </div>
 
 
-
-
-
-
-        {/* Right Section */}
 
 
         <div>
 
-
           <SystemEvents />
-
 
         </div>
 
 
-
       </div>
-
 
 
     </div>
@@ -170,4 +156,4 @@ function Dashboard() {
 }
 
 
-export default Dashboard;
+export default AdminDashboard;

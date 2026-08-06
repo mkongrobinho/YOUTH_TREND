@@ -15,14 +15,14 @@ const projects = [
     tech:
       "React, Tailwind CSS, Node.js",
     members: 5,
-    image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&q=80",
+   image:
+  "https://images.pexels.com/photos/34257712/pexels-photo-34257712.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
 
-    students: [
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80"
-    ]
+students: [
+  "https://images.pexels.com/photos/29852896/pexels-photo-29852896.jpeg?auto=compress&cs=tinysrgb&w=200&q=80",
+  "https://images.pexels.com/photos/31437216/pexels-photo-31437216.jpeg?auto=compress&cs=tinysrgb&w=200&q=80",
+  "https://images.pexels.com/photos/31528664/pexels-photo-31528664.jpeg?auto=compress&cs=tinysrgb&w=200&q=80"
+]
   },
 
 
@@ -52,13 +52,13 @@ const projects = [
     tech:
       "React, Firebase",
     members: 6,
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+   image:
+"https://images.pexels.com/photos/5940864/pexels-photo-5940864.jpeg?auto=compress&cs=tinysrgb&w=800&q=80",
 
-    students: [
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
-      "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&q=80"
-    ]
+students: [
+  "https://images.pexels.com/photos/8543078/pexels-photo-8543078.jpeg?auto=compress&cs=tinysrgb&w=200&q=80",
+  "https://images.pexels.com/photos/31367501/pexels-photo-31367501.jpeg?auto=compress&cs=tinysrgb&w=200&q=80"
+]
   }
 
 ];
@@ -97,7 +97,9 @@ function Projects() {
       ">
 
         <input
+
           placeholder="Search projects..."
+
           className="
             w-full
             bg-gray-100
@@ -106,6 +108,7 @@ function Projects() {
             py-3
             outline-none
           "
+
         />
 
       </div>
@@ -114,7 +117,8 @@ function Projects() {
 
 
 
-      {/* Projects */}
+
+      {/* Projects List */}
 
       <div className="
         grid
@@ -124,16 +128,17 @@ function Projects() {
       ">
 
 
-        {
-          projects.map((project)=>(
+        {projects.map((project)=>(
 
-            <ProjectCard
-              key={project.id}
-              project={project}
-            />
+          <ProjectCard
 
-          ))
-        }
+            key={project.id}
+
+            project={project}
+
+          />
+
+        ))}
 
 
       </div>
@@ -142,17 +147,23 @@ function Projects() {
 
 
 
-      {/* Create Project Modal */}
+
+      {/* Create Project */}
 
       {
+
         showCreate && (
 
           <CreateProject
+
             close={() => setShowCreate(false)}
+
           />
 
         )
+
       }
+
 
 
     </div>

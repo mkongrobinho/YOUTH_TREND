@@ -1,189 +1,150 @@
-import {
-  MapPin,
-  MessageCircle,
-  UserPlus,
-  BadgeCheck
-} from "lucide-react";
-
+import { MapPin, GraduationCap, BadgeCheck } from "lucide-react";
 
 function ProfileHeader() {
-
   return (
-
     <div
       className="
         bg-white
-        rounded-2xl
-        shadow-sm
-        border
-        p-6
-        -mt-16
+        rounded-3xl
+        shadow
+        p-8
+        -mt-20
         relative
-        mx-5
+        z-10
       "
     >
+      <div className="flex flex-col lg:flex-row items-center lg:items-end gap-8">
 
-      <div
-        className="
-          flex
-          flex-col
-          md:flex-row
-          md:items-end
-          justify-between
-          gap-5
-        "
-      >
+        {/* Profile Picture */}
+    <img
+  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&q=80"
+  alt="African Student Profile"
+  className="
+    w-40
+    h-40
+    rounded-full
+    border-4
+    border-white
+    object-cover
+    shadow-lg
+  "
+/>
+        {/* Profile Info */}
+        <div className="flex-1 text-center lg:text-left">
 
+          <div className="flex items-center justify-center lg:justify-start gap-2">
 
-        <div
-          className="
-            flex
-            items-center
-            gap-5
-          "
-        >
+            <h2 className="text-3xl font-bold">
+              Christell Ivana
+            </h2>
 
-          {/* Profile Image */}
-
-          <div
-            className="
-              w-32
-              h-32
-              rounded-full
-              overflow-hidden
-              border-4
-              border-white
-              shadow-lg
-            "
-          >
-
-            <img
-              src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
-              alt="Profile"
-              className="
-                w-full
-                h-full
-                object-cover
-              "
+            <BadgeCheck
+              size={24}
+              className="text-blue-500"
             />
 
           </div>
 
+          <p className="text-gray-500 mt-2">
+            Software Engineering Student
+          </p>
 
+          <div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-4 text-gray-600">
 
-          <div>
-
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-              "
-            >
-
-              <h1 className="
-                text-3xl
-                font-bold
-              ">
-                Amara Njoku
-              </h1>
-
-
-              <BadgeCheck
-                className="text-green-600"
-                size={24}
-              />
-
+            <div className="flex items-center gap-2">
+              <GraduationCap size={18} />
+              University of Buea
             </div>
 
-
-            <p className="text-gray-500">
-              University of Yaoundé I
-            </p>
-
-
-            <p className="text-gray-500 text-sm">
-              Faculty of Science • Software Engineering
-            </p>
-
-
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-                text-gray-500
-                mt-2
-                text-sm
-              "
-            >
-
-              <MapPin size={16}/>
+            <div className="flex items-center gap-2">
+              <MapPin size={18} />
               Cameroon
-
             </div>
-
 
           </div>
 
+          {/* Stats */}
+          <div className="flex justify-center lg:justify-start gap-10 mt-6">
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#005429]">
+                248
+              </h3>
+              <p className="text-gray-500 text-sm">
+                Posts
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#005429]">
+                5.2K
+              </h3>
+              <p className="text-gray-500 text-sm">
+                Followers
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#005429]">
+                980
+              </h3>
+              <p className="text-gray-500 text-sm">
+                Following
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#005429]">
+                12
+              </h3>
+              <p className="text-gray-500 text-sm">
+                Communities
+              </p>
+            </div>
+
+          </div>
 
         </div>
 
-
-
-
+        {/* Buttons */}
         <div className="flex gap-3">
 
           <button
             className="
-              bg-green-700
+              bg-[#005429]
               text-white
               px-6
               py-3
               rounded-xl
-              flex
-              items-center
-              gap-2
+              font-semibold
+              hover:bg-green-800
+              transition
             "
           >
-
-            <UserPlus size={18}/>
-            Connect
-
+            Edit Profile
           </button>
-
-
 
           <button
             className="
               border
-              border-green-700
-              text-green-700
+              border-[#005429]
+              text-[#005429]
               px-6
               py-3
               rounded-xl
-              flex
-              items-center
-              gap-2
+              font-semibold
+              hover:bg-green-50
+              transition
             "
           >
-
-            <MessageCircle size={18}/>
             Message
-
           </button>
-
 
         </div>
 
-
       </div>
-
-
     </div>
-
   );
 }
-
 
 export default ProfileHeader;

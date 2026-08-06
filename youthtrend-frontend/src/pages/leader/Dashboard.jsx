@@ -8,7 +8,6 @@ import {
 } from "lucide-react";
 
 import StatCard from "../../components/leader/StatCard";
-
 import ActivityCard from "../../components/leader/ActivityCard";
 import NoticeBoard from "../../components/leader/NoticeBoard";
 
@@ -99,7 +98,7 @@ function Dashboard() {
 
 
 
-        {/* Moderation Queue */}
+        {/* Moderation Preview */}
 
         <div className="
           xl:col-span-2
@@ -125,165 +124,125 @@ function Dashboard() {
               View All Reports
             </button>
 
+
           </div>
+
 
 
 
           <div className="mt-6 space-y-5">
 
-  <div className="border rounded-xl p-4">
 
-    <div className="flex items-center gap-3">
+            {[
+              {
+                initials:"BN",
+                name:"Bate Ngao",
+                issue:"Harassment • Post",
+                status:"Pending",
+                color:"yellow"
+              },
 
-      <div className="
-        w-10
-        h-10
-        rounded-full
-        bg-emerald-600
-        text-white
-        flex
-        items-center
-        justify-center
-        font-bold
-      ">
-        BN
-      </div>
+              {
+                initials:"TK",
+                name:"Tanyi Kevin",
+                issue:"Spam • Profile",
+                status:"Escalated",
+                color:"red"
+              },
 
-      <div>
+              {
+                initials:"EM",
+                name:"Eposi Mary",
+                issue:"Inappropriate • Post",
+                status:"Pending",
+                color:"yellow"
+              }
 
-        <h3 className="font-semibold">
-          Bate Ngao
-        </h3>
-
-        <p className="text-sm text-gray-500">
-          Harassment • Post
-        </p>
-
-      </div>
-
-      <span className="
-        ml-auto
-        bg-yellow-100
-        text-yellow-600
-        px-3
-        py-1
-        rounded-full
-        text-xs
-      ">
-        Pending
-      </span>
-
-    </div>
-
-  </div>
+            ].map((item,index)=>(
 
 
+              <div
+                key={index}
+                className="
+                border
+                rounded-xl
+                p-4
+                "
+              >
+
+                <div className="
+                  flex
+                  items-center
+                  gap-3
+                ">
 
 
+                  <div className="
+                    w-10
+                    h-10
+                    rounded-full
+                    bg-emerald-600
+                    text-white
+                    flex
+                    items-center
+                    justify-center
+                    font-bold
+                  ">
 
-  <div className="border rounded-xl p-4">
+                    {item.initials}
 
-    <div className="flex items-center gap-3">
-
-      <div className="
-        w-10
-        h-10
-        rounded-full
-        bg-gray-400
-        text-white
-        flex
-        items-center
-        justify-center
-        font-bold
-      ">
-        TK
-      </div>
-
-      <div>
-
-        <h3 className="font-semibold">
-          Tanyi Kevin
-        </h3>
-
-        <p className="text-sm text-gray-500">
-          Spam • Profile
-        </p>
-
-      </div>
-
-
-      <span className="
-        ml-auto
-        bg-red-100
-        text-red-600
-        px-3
-        py-1
-        rounded-full
-        text-xs
-      ">
-        Escalated
-      </span>
-
-
-    </div>
-
-  </div>
+                  </div>
 
 
 
 
+                  <div>
 
-  <div className="border rounded-xl p-4">
+                    <h3 className="font-semibold">
+                      {item.name}
+                    </h3>
 
-    <div className="flex items-center gap-3">
+                    <p className="text-sm text-gray-500">
+                      {item.issue}
+                    </p>
 
-      <div className="
-        w-10
-        h-10
-        rounded-full
-        bg-emerald-600
-        text-white
-        flex
-        items-center
-        justify-center
-        font-bold
-      ">
-        EM
-      </div>
+                  </div>
 
 
-      <div>
-
-        <h3 className="font-semibold">
-          Eposi Mary
-        </h3>
-
-        <p className="text-sm text-gray-500">
-          Inappropriate • Post
-        </p>
-
-      </div>
 
 
-      <span className="
-        ml-auto
-        bg-yellow-100
-        text-yellow-600
-        px-3
-        py-1
-        rounded-full
-        text-xs
-      ">
-        Pending
-      </span>
+                  <span className={`
+                    ml-auto
+                    px-3
+                    py-1
+                    rounded-full
+                    text-xs
+
+                    ${
+                      item.color==="red"
+                      ?
+                      "bg-red-100 text-red-600"
+                      :
+                      "bg-yellow-100 text-yellow-600"
+                    }
+
+                  `}>
+
+                    {item.status}
+
+                  </span>
 
 
-    </div>
-
-  </div>
+                </div>
 
 
-</div>
+              </div>
+
+
+            ))}
+
+
+          </div>
 
 
         </div>
@@ -294,7 +253,9 @@ function Dashboard() {
 
 
 
+
         {/* Activity Feed */}
+
 
         <div className="
           bg-white
@@ -309,7 +270,9 @@ function Dashboard() {
             font-bold
             mb-6
           ">
+
             Activity Feed
+
           </h2>
 
 
@@ -357,14 +320,16 @@ function Dashboard() {
 
 
 
+
+
       {/* Bottom Section */}
+
 
       <div className="
         grid
         xl:grid-cols-2
         gap-6
       ">
-
 
 
         <div className="
@@ -374,13 +339,25 @@ function Dashboard() {
           p-8
         ">
 
-          <h2 className="text-3xl font-bold">
+
+          <h2 className="
+            text-3xl
+            font-bold
+          ">
+
             Campus Activity Surge
+
           </h2>
 
 
-          <p className="text-gray-500 mt-3">
+
+          <p className="
+            text-gray-500
+            mt-3
+          ">
+
             Current real-time network interactions across campuses.
+
           </p>
 
 
@@ -389,11 +366,11 @@ function Dashboard() {
 
 
 
+
         <NoticeBoard />
 
 
       </div>
-
 
 
     </div>

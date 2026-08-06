@@ -1,167 +1,244 @@
-import { Users } from "lucide-react";
+import { Users, Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 
 function CommunityCard({ community }) {
 
-
   const navigate = useNavigate();
 
+  const [joined, setJoined] = useState(false);
 
+  const [members, setMembers] = useState(community.members);
 
-  return (
 
-    <div className="
-      bg-white
-      rounded-2xl
-      border
-      overflow-hidden
-      shadow-sm
-    ">
 
+  const handleJoin = (e)=>{
 
+    e.stopPropagation();
 
-      {/* Cover Image */}
 
-      <img
-        src={community.cover}
-        alt={community.name}
-        className="
-          w-full
-          h-40
-          object-cover
-        "
-      />
+    if(!joined){
 
+      setMembers(members + 1);
 
+    }
+    else{
 
+      setMembers(members - 1);
 
+    }
 
-      {/* Content */}
 
-      <div className="p-5">
+    setJoined(!joined);
 
+  };
 
-        <h2 className="
-          text-xl
-          font-bold
-        ">
-          {community.name}
-        </h2>
 
 
+return (
 
-        <p className="
-          text-gray-500
-          text-sm
-          mt-2
-          line-clamp-2
-        ">
-          {community.description}
-        </p>
+<div
 
+className="
+bg-white
+rounded-2xl
+border
+overflow-hidden
+shadow-sm
+hover:shadow-md
+transition
+cursor-pointer
+"
 
+onClick={()=>navigate(`/community/${community.id}`)}
 
+>
 
 
-        {/* Members */}
 
-        <div className="
-          flex
-          items-center
-          gap-2
-          text-gray-500
-          mt-4
-        ">
 
-          <Users size={18}/>
+{/* Cover */}
 
-          <span>
-            {community.members} Members
-          </span>
+<img
 
+src={community.cover}
 
-        </div>
+alt={community.name}
 
+className="
+w-full
+h-40
+object-cover
+"
 
+/>
 
 
 
 
-        {/* Student avatars */}
 
-        <div className="
-          flex
-          mt-4
-        ">
+<div className="p-5">
 
 
-          {
-            community.students?.map((student,index)=>(
 
-              <img
+<h2 className="
+text-xl
+font-bold
+text-[#005429]
+">
 
-                key={index}
+{community.name}
 
-                src={student}
+</h2>
 
-                alt="student"
 
-                className="
-                  w-9
-                  h-9
-                  rounded-full
-                  object-cover
-                  border-2
-                  border-white
-                  -ml-2
-                "
 
-              />
 
-            ))
-          }
+<p className="
+text-gray-500
+text-sm
+mt-2
+line-clamp-3
+">
 
+{community.description}
 
-        </div>
+</p>
 
 
 
 
 
 
+<div className="
+flex
+items-center
+gap-2
+mt-4
+text-gray-600
+">
 
-        {/* Button */}
 
-        <button
+<Users size={18}/>
 
-          onClick={() =>
-            navigate(`/community/${community.id}`)
-          }
 
-          className="
-            mt-5
-            w-full
-            bg-green-700
-            text-white
-            py-3
-            rounded-xl
-            hover:bg-green-800
-          "
+<span>
 
-        >
+{members} members
 
-          View Community
+</span>
 
-        </button>
 
+</div>
 
-      </div>
 
 
-    </div>
 
-  );
+
+
+
+
+{/* Student avatars */}
+
+<div className="
+flex
+mt-4
+">
+
+
+{
+community.students.map((student,index)=>(
+
+
+<img
+
+key={index}
+
+src={student}
+
+alt="student"
+
+className="
+w-9
+h-9
+rounded-full
+border-2
+border-white
+-object-cover
+-ml-2
+"
+
+/>
+
+
+))
+
+}
+
+
+</div>
+
+
+
+
+
+
+
+{/* Join Button */}
+
+<button
+
+onClick={handleJoin}
+
+className={`
+mt-5
+w-full
+py-2
+rounded-xl
+flex
+items-center
+justify-center
+gap-2
+font-semibold
+
+${
+joined
+?
+"bg-gray-200 text-gray-700"
+:
+"bg-[#005429] text-white"
+}
+
+`}
+
+>
+
+
+{
+joined
+?
+<>
+<Check size={18}/>
+Joined
+</>
+:
+"Join Community"
+}
+
+
+</button>
+
+
+
+
+</div>
+
+
+</div>
+
+
+);
 
 }
 

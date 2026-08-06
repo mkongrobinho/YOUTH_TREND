@@ -42,7 +42,7 @@ function ActivityCard() {
 
 
         <img
-          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+          src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800"
           alt="Project"
           className="
             w-full

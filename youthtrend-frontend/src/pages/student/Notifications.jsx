@@ -1,119 +1,90 @@
-import {
-  Bell,
-  Heart,
-  MessageCircle,
-  UserPlus,
-  Calendar,
-  Check
-} from "lucide-react";
+import NotificationCard from "../../components/notifications/NotificationCard";
+
+
+const notifications = [
+
+  {
+    id: 1,
+    name: "Grace M.",
+    message: "liked your post about the YouthTrend project.",
+    time: "2 minutes ago",
+    type: "like",
+    avatar:
+      "https://images.pexels.com/photos/1181688/pexels-photo-1181688.jpeg?auto=compress&cs=tinysrgb&w=300",
+    read: false
+  },
+
+
+  {
+    id: 2,
+    name: "Daniel T.",
+    message: "commented on your project update.",
+    time: "15 minutes ago",
+    type: "comment",
+    avatar:
+      "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=300",
+    read: false
+  },
+
+
+  {
+    id: 3,
+    name: "AWS Community Cameroon",
+    message: "published a new announcement.",
+    time: "1 hour ago",
+    type: "community",
+    avatar:
+      "https://images.pexels.com/photos/3760854/pexels-photo-3760854.jpeg?auto=compress&cs=tinysrgb&w=300",
+    read: true
+  },
+
+
+  {
+    id: 4,
+    name: "Sarah K.",
+    message: "invited you to join a project team.",
+    time: "3 hours ago",
+    type: "project",
+    avatar:
+      "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300",
+    read: true
+  }
+
+];
+
 
 
 function Notifications() {
 
 
-  const notifications = [
-    {
-      icon: <Heart size={20}/>,
-      title: "Your post received 24 likes",
-      text: "Students liked your recent project post",
-      time: "10 minutes ago"
-    },
-
-    {
-      icon: <MessageCircle size={20}/>,
-      title: "New comment on your post",
-      text: "David commented on your React project",
-      time: "1 hour ago"
-    },
-
-    {
-      icon: <UserPlus size={20}/>,
-      title: "New connection request",
-      text: "Sarah wants to connect with you",
-      time: "3 hours ago"
-    },
-
-    {
-      icon: <Calendar size={20}/>,
-      title: "Event reminder",
-      text: "Campus Tech Meetup starts tomorrow",
-      time: "Yesterday"
-    }
-  ];
-
-
-
   return (
 
     <div className="
-      max-w-5xl
-      mx-auto
       space-y-6
     ">
 
 
-      {/* Header */}
+      <div>
 
-      <div className="
-        bg-white
-        rounded-2xl
-        border
-        p-6
-        flex
-        justify-between
-        items-center
-      ">
-
-        <div className="
-          flex
-          items-center
-          gap-3
+        <h1 className="
+          text-3xl
+          font-bold
+          text-[#005429]
         ">
 
-          <div className="
-            bg-green-100
-            text-green-700
-            p-3
-            rounded-full
-          ">
-            <Bell/>
-          </div>
+          Notifications
+
+        </h1>
 
 
-          <div>
-
-            <h1 className="
-              text-2xl
-              font-bold
-            ">
-              Notifications
-            </h1>
-
-            <p className="
-              text-gray-500
-            ">
-              Stay updated with your campus activities
-            </p>
-
-          </div>
-
-
-        </div>
-
-
-
-        <button className="
-          text-green-700
-          flex
-          items-center
-          gap-2
+        <p className="
+          text-gray-500
+          mt-2
         ">
 
-          <Check size={18}/>
+          Stay updated with activities from your campus community.
 
-          Mark all read
-
-        </button>
+        </p>
 
 
       </div>
@@ -122,179 +93,33 @@ function Notifications() {
 
 
 
-      {/* Notification list */}
-
       <div className="
         bg-white
         rounded-2xl
         border
-        p-6
+        overflow-hidden
       ">
 
 
-        <h2 className="
-          font-bold
-          text-lg
-          mb-5
-        ">
-          Today
-        </h2>
+        {
+          notifications.map((notification)=>(
 
 
+            <NotificationCard
 
-        <div className="
-          space-y-4
-        ">
+              key={notification.id}
 
+              notification={notification}
 
-          {notifications.map((item,index)=>(
-
-            <div
-              key={index}
-              className="
-                flex
-                gap-4
-                p-4
-                rounded-xl
-                hover:bg-gray-50
-              "
-            >
-
-
-              <div className="
-                w-12
-                h-12
-                rounded-full
-                bg-green-100
-                text-green-700
-                flex
-                items-center
-                justify-center
-              ">
-
-                {item.icon}
-
-              </div>
-
-
-
-              <div>
-
-                <h3 className="
-                  font-semibold
-                ">
-                  {item.title}
-                </h3>
-
-
-                <p className="
-                  text-gray-500
-                  text-sm
-                ">
-                  {item.text}
-                </p>
-
-
-                <p className="
-                  text-xs
-                  text-gray-400
-                  mt-1
-                ">
-                  {item.time}
-                </p>
-
-
-              </div>
-
-
-            </div>
-
-
-          ))}
-
-
-        </div>
-
-
-      </div>
-
-
-
-
-
-      {/* Suggestions */}
-
-      <div className="
-        bg-white
-        rounded-2xl
-        border
-        p-6
-      ">
-
-
-        <h2 className="
-          font-bold
-          text-lg
-          mb-4
-        ">
-          Suggested Connections
-        </h2>
-
-
-        <div className="
-          flex
-          items-center
-          justify-between
-        ">
-
-
-          <div className="
-            flex
-            items-center
-            gap-3
-          ">
-
-            <img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
-              className="
-                w-12
-                h-12
-                rounded-full
-                object-cover
-              "
             />
 
-            <div>
 
-              <p className="font-semibold">
-                Grace M.
-              </p>
-
-              <p className="text-sm text-gray-500">
-                Computer Science Student
-              </p>
-
-            </div>
-
-          </div>
-
-
-
-          <button className="
-            bg-green-700
-            text-white
-            px-4
-            py-2
-            rounded-xl
-          ">
-            Connect
-          </button>
-
-
-        </div>
+          ))
+        }
 
 
       </div>
+
 
 
     </div>
