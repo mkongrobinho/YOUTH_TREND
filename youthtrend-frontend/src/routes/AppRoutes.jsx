@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Login from "../pages/auth/Login";
-import Signup from "../pages/auth/Signup";
+import Register from "../pages/auth/Register";
 
 import Home from "../pages/student/Home";
 import Discover from "../pages/student/Discover";
@@ -12,92 +12,86 @@ import Messages from "../pages/student/Messages";
 import Profile from "../pages/student/Profile";
 
 import MainLayout from "../layouts/MainLayout";
+import ProtectedRoute from "./ProtectedRoute";
 
-
-function AppRoutes(){
-
-  return(
+function AppRoutes() {
+  return (
     <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
 
-      <Route path="/" element={<Login />} />
-
-      <Route path="/signup" element={<Signup />} />
-
-
-      <Route 
-        path="/home" 
+      <Route
+        path="/"
         element={
-          <MainLayout>
-            <Home />
-          </MainLayout>
-        } 
+          <ProtectedRoute>
+            <MainLayout>
+              <Home />
+            </MainLayout>
+          </ProtectedRoute>
+        }
       />
-
-
-      <Route 
-        path="/discover" 
+      <Route
+        path="/discover"
         element={
-          <MainLayout>
-            <Discover />
-          </MainLayout>
-        } 
+          <ProtectedRoute>
+            <MainLayout>
+              <Discover />
+            </MainLayout>
+          </ProtectedRoute>
+        }
       />
-
-
-      <Route 
-        path="/communities" 
+      <Route
+        path="/communities"
         element={
-          <MainLayout>
-            <Communities />
-          </MainLayout>
-        } 
+          <ProtectedRoute>
+            <MainLayout>
+              <Communities />
+            </MainLayout>
+          </ProtectedRoute>
+        }
       />
-
-
-      <Route 
-        path="/projects" 
+      <Route
+        path="/projects"
         element={
-          <MainLayout>
-            <Projects />
-          </MainLayout>
-        } 
+          <ProtectedRoute>
+            <MainLayout>
+              <Projects />
+            </MainLayout>
+          </ProtectedRoute>
+        }
       />
-
-
-      <Route 
-        path="/events" 
+      <Route
+        path="/events"
         element={
-          <MainLayout>
-            <Events />
-          </MainLayout>
-        } 
+          <ProtectedRoute>
+            <MainLayout>
+              <Events />
+            </MainLayout>
+          </ProtectedRoute>
+        }
       />
-
-
-      <Route 
-        path="/messages" 
+      <Route
+        path="/messages"
         element={
-          <MainLayout>
-            <Messages />
-          </MainLayout>
-        } 
+          <ProtectedRoute>
+            <MainLayout>
+              <Messages />
+            </MainLayout>
+          </ProtectedRoute>
+        }
       />
-
-
-      <Route 
-        path="/profile" 
+      <Route
+        path="/profile"
         element={
-          <MainLayout>
-            <Profile />
-          </MainLayout>
-        } 
+          <ProtectedRoute>
+            <MainLayout>
+              <Profile />
+            </MainLayout>
+          </ProtectedRoute>
+        }
       />
-
-
     </Routes>
   );
-
 }
-
 
 export default AppRoutes;
